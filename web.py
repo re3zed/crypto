@@ -7,7 +7,7 @@ f=True
 try:
     lis={}
     f=0.0
-    b=input(int("num:"))
+    b=int(input("num:"))
     html=urlopen("https://coinranking.com")
     bs=BeautifulSoup(html.read(),"lxml")
     find=bs.find_all("div",{"class":"valuta"})
@@ -16,9 +16,11 @@ try:
       #print(find[i].get_text())
       price=find[i].get_text().replace('$', '').replace(' ', '').replace('\n','').replace(',','')
       price_string=float(price)
+      print(float(price))
+      print("-------------------------------------------")
       #pricee=float(price_string)
-      f+=price
-      g=b/2
+      f+=float(price)
+      g=int(b/2)
       z=f/g
       print(z)
 
